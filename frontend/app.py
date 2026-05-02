@@ -848,7 +848,7 @@ st.markdown("""
     </p>
     <p style="color: rgba(255,255,255,0.6); font-size: 14px;">
         Made with ❤️ using Spring Boot & Streamlit | 
-        🚀 MultiCloudDevOps by Veera NareshIT | 
+        🚀 MultiCloudDevOps by Gokul Rathod | 
         📅 {current_time}
     </p>
     <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 10px;">
