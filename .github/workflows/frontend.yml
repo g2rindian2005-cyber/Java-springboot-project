@@ -1,10 +1,12 @@
 name: Deploy Streamlit Frontend to EC2
 
 on:
-  workflow_run:
-    workflows: ["Deploy Backend to EC2"]
-    types:
-      - completed
+
+  # push:
+  #   branches:
+  #     - main
+
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -25,8 +27,8 @@ jobs:
             set -e
 
             APP_DIR=/home/ec2-user/front
-            REPO_NAME=Java-springboot-project
-            REPO_URL=https://github.com/CloudTechDevOps/Java-springboot-project.git
+            REPO_NAME=Java-springbohttps://github.com/g2rindian2005-cyber/Java-springboot-project.gitot-project
+            REPO_URL=
 
             echo "🚀 Starting deployment..."
 
@@ -63,21 +65,21 @@ jobs:
             [Unit]
             Description=Streamlit Frontend App
             After=network.target
-            
+
             [Service]
             User=ec2-user
             WorkingDirectory=/home/ec2-user/front/Java-springboot-project/frontend
-            
+
             ExecStart=/bin/bash -c 'source /home/ec2-user/front/Java-springboot-project/frontend/venv/bin/activate && streamlit run app.py --server.port=8501 --server.address=0.0.0.0'
-            
+
             Environment=API_URL=http://localhost:8084
-            
+
             Restart=always
             RestartSec=5
-            
+
             StandardOutput=append:/home/ec2-user/frontend.log
             StandardError=append:/home/ec2-user/frontend-error.log
-            
+
             [Install]
             WantedBy=multi-user.target
             EOF
